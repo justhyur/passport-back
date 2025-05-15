@@ -1,8 +1,7 @@
 import express from 'express';
-import { readJSON } from '../lib/file.js';
 import { slugify } from '../lib/utilities.js';
 const router = express.Router();
-const countries = readJSON('./database/countriesData.json');
+import countries from '../database/countriesData.js'
 const passports = countries.map(({id, slug}) => ({id, slug, countries: []}));
 countries.forEach((c) => {
     c.passports.forEach((p) => {

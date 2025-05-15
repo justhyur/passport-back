@@ -1,7 +1,6 @@
 import express from 'express';
-import { readJSON } from '../lib/file.js';
 const router = express.Router();
-const countries = readJSON('./database/countriesData.json');
+import countries from '../database/countriesData.js'
 
 router.get('/', (req, res) => {
     const countriesList = countries.map((c) => {
